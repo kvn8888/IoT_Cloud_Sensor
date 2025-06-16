@@ -18,6 +18,8 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include <string.h>
+#include "i2c_lcd.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -97,10 +99,22 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   MX_I2C1_Init();
+  lcd_init();
   /* USER CODE BEGIN 2 */
 
+  printf("\r\nI2C bus scan …\r\n");
+  uint8_t found = 0;
+  for (uint16_t addr = 0x03; addr < 0x78; ++addr)
+  {
+      if (HAL_I2C_IsDeviceReady(&hi2c1, addr << 1, 1, 10) == HAL_OK)
+      {
+          printf("Device @ 0x%02X\r\n", addr);
+          found = 1;
+      }
+  }
+  if (!found) printf("No I2C devices found!\r\n");
 
-  printf("hello world\n");
+  while (1);                              // stop here
 
   /* USER CODE END 2 */
 

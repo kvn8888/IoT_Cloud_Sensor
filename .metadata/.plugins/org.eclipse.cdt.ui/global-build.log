@@ -1,18 +1,29 @@
-17:00:52 **** Incremental Build of configuration Debug for project weatherStation ****
+18:37:22 **** Incremental Build of configuration Debug for project weatherStation ****
 make -j7 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/i2c_lcd.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c_lcd.d" -MT"Core/Src/i2c_lcd.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c_lcd.o"
+../Core/Src/i2c_lcd.c:2:21: warning: missing terminating " character
+    2 | #include <stdbool.h>"
+      |                     ^
+../Core/Src/i2c_lcd.c:2:21: warning: extra tokens at end of #include directive
+../Core/Src/i2c_lcd.c: In function 'lcd_send_string':
+../Core/Src/i2c_lcd.c:116:33: warning: value computed is not used [-Wunused-value]
+  116 |                                 *str++;
+      |                                 ^~~~~~
+../Core/Src/i2c_lcd.c:122:33: warning: value computed is not used [-Wunused-value]
+  122 |                                 *str++;
+      |                                 ^~~~~~
 arm-none-eabi-gcc -o "weatherStation.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/kevinc/Developer/embedded/IoT_Cloud_Sensor/weatherStation/STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="weatherStation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: weatherStation.elf
  
 arm-none-eabi-size  weatherStation.elf 
 arm-none-eabi-objdump -h -S weatherStation.elf  > "weatherStation.list"
    text	   data	    bss	    dec	    hex	filename
-  15040	    104	   2040	  17184	   4320	weatherStation.elf
+  15076	     12	   1788	  16876	   41ec	weatherStation.elf
 Finished building: default.size.stdout
  
 Finished building: weatherStation.list
  
-17:01:17 **** Incremental Build of configuration Debug for project weatherStation ****
+18:38:23 **** Incremental Build of configuration Debug for project weatherStation ****
 make -j7 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc -o "weatherStation.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/kevinc/Developer/embedded/IoT_Cloud_Sensor/weatherStation/STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="weatherStation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -21,7 +32,55 @@ Finished building target: weatherStation.elf
 arm-none-eabi-size  weatherStation.elf 
 arm-none-eabi-objdump -h -S weatherStation.elf  > "weatherStation.list"
    text	   data	    bss	    dec	    hex	filename
-  15044	    104	   2040	  17188	   4324	weatherStation.elf
+  15532	     12	   1788	  17332	   43b4	weatherStation.elf
+Finished building: default.size.stdout
+ 
+Finished building: weatherStation.list
+ 
+18:46:54 **** Incremental Build of configuration Debug for project weatherStation ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/i2c_lcd.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c_lcd.d" -MT"Core/Src/i2c_lcd.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c_lcd.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/i2c_lcd.c: In function 'lcd_send_string':
+../Core/Src/i2c_lcd.c:113:33: warning: value computed is not used [-Wunused-value]
+  113 |                                 *str++;
+      |                                 ^~~~~~
+../Core/Src/i2c_lcd.c:119:33: warning: value computed is not used [-Wunused-value]
+  119 |                                 *str++;
+      |                                 ^~~~~~
+arm-none-eabi-gcc -o "weatherStation.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/kevinc/Developer/embedded/IoT_Cloud_Sensor/weatherStation/STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="weatherStation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: weatherStation.elf
+ 
+arm-none-eabi-size  weatherStation.elf 
+arm-none-eabi-objdump -h -S weatherStation.elf  > "weatherStation.list"
+   text	   data	    bss	    dec	    hex	filename
+  15964	     12	   1788	  17764	   4564	weatherStation.elf
+Finished building: default.size.stdout
+ 
+Finished building: weatherStation.list
+ 
+18:51:56 **** Incremental Build of configuration Debug for project weatherStation ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:105:3: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+  105 |   printf("\r\nI2C bus scan …\r\n");
+      |   ^~~~~~
+../Core/Src/main.c:23:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   22 | #include "i2c_lcd.h"
+  +++ |+#include <stdio.h>
+   23 | 
+../Core/Src/main.c:105:3: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+  105 |   printf("\r\nI2C bus scan …\r\n");
+      |   ^~~~~~
+../Core/Src/main.c:105:3: note: include '<stdio.h>' or provide a declaration of 'printf'
+arm-none-eabi-gcc -o "weatherStation.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/kevinc/Developer/embedded/IoT_Cloud_Sensor/weatherStation/STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="weatherStation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: weatherStation.elf
+ 
+arm-none-eabi-size  weatherStation.elf 
+arm-none-eabi-objdump -h -S weatherStation.elf  > "weatherStation.list"
+   text	   data	    bss	    dec	    hex	filename
+  20216	    104	   2128	  22448	   57b0	weatherStation.elf
 Finished building: default.size.stdout
  
 Finished building: weatherStation.list
