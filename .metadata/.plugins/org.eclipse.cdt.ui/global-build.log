@@ -99,3 +99,24 @@ Finished building: default.size.stdout
  
 Finished building: weatherStation.list
  
+19:13:15 **** Incremental Build of configuration Debug for project weatherStation ****
+make -j7 all 
+arm-none-eabi-size  weatherStation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  15468	     12	   1788	  17268	   4374	weatherStation.elf
+Finished building: default.size.stdout
+ 
+20:18:01 **** Incremental Build of configuration Debug for project weatherStation ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "weatherStation.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/kevinc/Developer/embedded/IoT_Cloud_Sensor/weatherStation/STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="weatherStation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: weatherStation.elf
+ 
+arm-none-eabi-size  weatherStation.elf 
+arm-none-eabi-objdump -h -S weatherStation.elf  > "weatherStation.list"
+   text	   data	    bss	    dec	    hex	filename
+  15492	     12	   1788	  17292	   438c	weatherStation.elf
+Finished building: default.size.stdout
+ 
+Finished building: weatherStation.list
+ 

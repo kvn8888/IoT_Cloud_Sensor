@@ -7,23 +7,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
   1 .text         00003a70  08000188  08000188  00001188  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .rodata       00000064  08003bf8  08003bf8  00004bf8  2**2
+  2 .rodata       0000007c  08003bf8  08003bf8  00004bf8  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM.extab    00000000  08003c5c  08003c5c  0000500c  2**0
+  3 .ARM.extab    00000000  08003c74  08003c74  0000500c  2**0
                   CONTENTS, READONLY
-  4 .ARM          00000008  08003c5c  08003c5c  00004c5c  2**2
+  4 .ARM          00000008  08003c74  08003c74  00004c74  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  5 .preinit_array 00000000  08003c64  08003c64  0000500c  2**0
+  5 .preinit_array 00000000  08003c7c  08003c7c  0000500c  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .init_array   00000004  08003c64  08003c64  00004c64  2**2
+  6 .init_array   00000004  08003c7c  08003c7c  00004c7c  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  7 .fini_array   00000004  08003c68  08003c68  00004c68  2**2
+  7 .fini_array   00000004  08003c80  08003c80  00004c80  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  8 .data         0000000c  20000000  08003c6c  00005000  2**2
+  8 .data         0000000c  20000000  08003c84  00005000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .bss          000000fc  2000000c  08003c78  0000500c  2**2
+  9 .bss          000000fc  2000000c  08003c90  0000500c  2**2
                   ALLOC
- 10 ._user_heap_stack 00000600  20000108  08003c78  00005108  2**0
+ 10 ._user_heap_stack 00000600  20000108  08003c90  00005108  2**0
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  0000500c  2**0
                   CONTENTS, READONLY
@@ -761,7 +761,7 @@ int main(void)
  8000780:	f7ff ff18 	bl	80005b4 <lcd_init>
   /* USER CODE BEGIN 2 */
 
-  lcd_send_string("hello world");
+  lcd_send_string("Temperature: 79F\nAir Quality: N/A");
  8000784:	4802      	ldr	r0, [pc, #8]	@ (8000790 <main+0x28>)
  8000786:	f7ff ff4f 	bl	8000628 <lcd_send_string>
 
@@ -1691,7 +1691,7 @@ LoopForever:
   ldr r1, =_edata
  8000bd4:	2000000c 	.word	0x2000000c
   ldr r2, =_sidata
- 8000bd8:	08003c6c 	.word	0x08003c6c
+ 8000bd8:	08003c84 	.word	0x08003c84
   ldr r2, =_sbss
  8000bdc:	2000000c 	.word	0x2000000c
   ldr r4, =_ebss
@@ -4936,7 +4936,7 @@ HAL_StatusTypeDef HAL_RCC_OscConfig(RCC_OscInitTypeDef  *RCC_OscInitStruct)
  8001e38:	e014      	b.n	8001e64 <HAL_RCC_OscConfig+0x298>
  8001e3a:	bf00      	nop
  8001e3c:	40021000 	.word	0x40021000
- 8001e40:	08003c14 	.word	0x08003c14
+ 8001e40:	08003c2c 	.word	0x08003c2c
  8001e44:	20000000 	.word	0x20000000
  8001e48:	20000004 	.word	0x20000004
  8001e4c:	4ba0      	ldr	r3, [pc, #640]	@ (80020d0 <HAL_RCC_OscConfig+0x504>)
@@ -6241,7 +6241,7 @@ HAL_StatusTypeDef HAL_RCC_ClockConfig(RCC_ClkInitTypeDef  *RCC_ClkInitStruct, ui
  800256e:	bd80      	pop	{r7, pc}
  8002570:	40022000 	.word	0x40022000
  8002574:	40021000 	.word	0x40021000
- 8002578:	08003c14 	.word	0x08003c14
+ 8002578:	08003c2c 	.word	0x08003c2c
  800257c:	20000000 	.word	0x20000000
  8002580:	20000004 	.word	0x20000004
 
@@ -6446,7 +6446,7 @@ uint32_t HAL_RCC_GetSysClockFreq(void)
  8002688:	4770      	bx	lr
  800268a:	bf00      	nop
  800268c:	40021000 	.word	0x40021000
- 8002690:	08003c2c 	.word	0x08003c2c
+ 8002690:	08003c44 	.word	0x08003c44
  8002694:	00f42400 	.word	0x00f42400
  8002698:	007a1200 	.word	0x007a1200
 
@@ -6495,7 +6495,7 @@ uint32_t HAL_RCC_GetPCLK1Freq(void)
  80026d4:	4618      	mov	r0, r3
  80026d6:	bd80      	pop	{r7, pc}
  80026d8:	40021000 	.word	0x40021000
- 80026dc:	08003c24 	.word	0x08003c24
+ 80026dc:	08003c3c 	.word	0x08003c3c
 
 080026e0 <HAL_RCC_GetPCLK2Freq>:
   * @note   Each time PCLK2 changes, this function must be called to update the
@@ -6522,7 +6522,7 @@ uint32_t HAL_RCC_GetPCLK2Freq(void)
  8002700:	4618      	mov	r0, r3
  8002702:	bd80      	pop	{r7, pc}
  8002704:	40021000 	.word	0x40021000
- 8002708:	08003c24 	.word	0x08003c24
+ 8002708:	08003c3c 	.word	0x08003c3c
 
 0800270c <RCC_SetFlashLatencyFromMSIRange>:
             voltage range.
@@ -10106,10 +10106,10 @@ static void UART_EndRxTransfer(UART_HandleTypeDef *huart)
  8003bca:	4798      	blx	r3
  8003bcc:	3601      	adds	r6, #1
  8003bce:	e7f2      	b.n	8003bb6 <__libc_init_array+0x1e>
- 8003bd0:	08003c64 	.word	0x08003c64
- 8003bd4:	08003c64 	.word	0x08003c64
- 8003bd8:	08003c64 	.word	0x08003c64
- 8003bdc:	08003c68 	.word	0x08003c68
+ 8003bd0:	08003c7c 	.word	0x08003c7c
+ 8003bd4:	08003c7c 	.word	0x08003c7c
+ 8003bd8:	08003c7c 	.word	0x08003c7c
+ 8003bdc:	08003c80 	.word	0x08003c80
 
 08003be0 <_init>:
  8003be0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
