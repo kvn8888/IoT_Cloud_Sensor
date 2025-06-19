@@ -62,8 +62,7 @@ static void MX_I2C1_Init(void);
 /* USER CODE BEGIN 0 */
 
 int _write(int file, char *ptr, int len) {
-	HAL_UART_Transmit(&huart2, (uint8_t*)ptr, len, HAL_MAX_DELAY);
-	return len;
+	return HAL_UART_Transmit(&huart2, (uint8_t*)ptr, len, HAL_MAX_DELAY);
 }
 
 /* USER CODE END 0 */
@@ -99,16 +98,15 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   MX_I2C1_Init();
-  lcd_init();
   printf("hello");
   /* USER CODE BEGIN 2 */
   /* USER CODE BEGIN 2 */
-//  printf("\r\nI2C bus scan ...\r\n");
-//  for (uint8_t addr = 0x03; addr < 0x78; ++addr)
-//  {
-//      if (HAL_I2C_IsDeviceReady(&hi2c1, addr << 1, 1, 10) == HAL_OK)
-//          printf("Device @ 0x%02X\r\n", addr);
-//  }
+  printf("\r\nI2C bus scan …\r\n");
+  for (uint8_t addr = 0x03; addr < 0x78; ++addr)
+  {
+      if (HAL_I2C_IsDeviceReady(&hi2c1, addr << 1, 1, 10) == HAL_OK)
+          printf("Device @ 0x%02X\r\n", addr);
+  }
 
   lcd_send_string("Temperature: 79F\nAir Quality: N/A");
 

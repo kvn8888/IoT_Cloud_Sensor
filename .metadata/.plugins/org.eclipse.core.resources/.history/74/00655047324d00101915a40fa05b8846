@@ -99,16 +99,15 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   MX_I2C1_Init();
-  lcd_init();
   printf("hello");
   /* USER CODE BEGIN 2 */
   /* USER CODE BEGIN 2 */
-//  printf("\r\nI2C bus scan ...\r\n");
-//  for (uint8_t addr = 0x03; addr < 0x78; ++addr)
-//  {
-//      if (HAL_I2C_IsDeviceReady(&hi2c1, addr << 1, 1, 10) == HAL_OK)
-//          printf("Device @ 0x%02X\r\n", addr);
-//  }
+  printf("\r\nI2C bus scan ...\r\n");
+  for (uint8_t addr = 0x03; addr < 0x78; ++addr)
+  {
+      if (HAL_I2C_IsDeviceReady(&hi2c1, addr << 1, 1, 10) == HAL_OK)
+          printf("Device @ 0x%02X\r\n", addr);
+  }
 
   lcd_send_string("Temperature: 79F\nAir Quality: N/A");
 
